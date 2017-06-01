@@ -13,6 +13,7 @@
 		38E585231EDF27EB00121ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E585211EDF27EB00121ACC /* Main.storyboard */; };
 		38E5852C1EDF27F700121ACC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5852A1EDF27F700121ACC /* StorageManager.swift */; };
 		38E5852D1EDF27F700121ACC /* meta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38E5852B1EDF27F700121ACC /* meta.plist */; };
+		38EA50F31EE047D50068E94C /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA50F21EE047D50068E94C /* Schema.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		38E585241EDF27EB00121ACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38E5852A1EDF27F700121ACC /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		38E5852B1EDF27F700121ACC /* meta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = meta.plist; sourceTree = "<group>"; };
+		38EA50F21EE047D50068E94C /* Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				38E5851F1EDF27EB00121ACC /* Assets.xcassets */,
 				38E585211EDF27EB00121ACC /* Main.storyboard */,
 				38E585241EDF27EB00121ACC /* Info.plist */,
+				38EA50F21EE047D50068E94C /* Schema.swift */,
 			);
 			path = ShadowPlayBalancer;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38EA50F31EE047D50068E94C /* Schema.swift in Sources */,
 				38E5852C1EDF27F700121ACC /* StorageManager.swift in Sources */,
 				38E5851E1EDF27EB00121ACC /* ViewController.swift in Sources */,
 				38E5851C1EDF27EB00121ACC /* AppDelegate.swift in Sources */,
@@ -299,6 +303,7 @@
 				38E585291EDF27EB00121ACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
