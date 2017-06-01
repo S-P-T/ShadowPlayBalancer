@@ -9,6 +9,8 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    @IBOutlet weak var itemNameField: NSTextField!
+    @IBOutlet weak var imageView: NSImageView!
     
     func getString(title: String, question: String, defaultValue: String) -> String {
         let msg = NSAlert()
@@ -39,7 +41,6 @@ class ViewController: NSViewController {
     private func validate(_ path: String) {
         if FileManager.default.fileExists(atPath: "\(path)/ShadowPlay.xcodeproj") {
             self.path = "\(path)/ShadowPlay/"
-            print(self.path)
         } else {
             Plist.shared.setItem(key: "repoPath", value: getString(title: "Invalid Path", question: "Please enter the CORRECT path of project folder. It should contain `ShadowPlay.xcodeproj`.", defaultValue: ""))
             validatePath()
@@ -55,15 +56,29 @@ class ViewController: NSViewController {
         }
     }
     
+    private func UISetup() {
+        imageView.layer?.borderWidth = 1
+        imageView.layer?.borderColor = .black
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.validatePath()
+        self.UISetup()
         // Do any additional setup after loading the view.
     }
 
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
+        }
+    }
+    
+    @IBAction func load(_ sender: Any) {
+        if let image = NSImage(byReferencingFile: pathOfName(itemNameField.stringValue) + ".png") {
+            let scale = (250 / max(image.size.width, image.size.height))
+            image.size = NSSize(width: scale * image.size.width, height: scale * image.size.height)
+            imageView.image = image
         }
     }
 
