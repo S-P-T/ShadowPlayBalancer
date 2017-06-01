@@ -73,6 +73,9 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+    @IBAction func openProjFolder(_ sender: Any) {
+        NSWorkspace.shared().selectFile(nil, inFileViewerRootedAtPath: path)
+    }
     
     @IBAction func load(_ sender: Any) {
         if let image = NSImage(byReferencingFile: pathOfName(itemNameField.stringValue) + ".png") {
