@@ -29,12 +29,29 @@ class ViewController: NSViewController {
             return ""
         }
     }
+    
+    var path: String = ""
+    
+    private func pathOfName(_ name: String) -> String {
+        return path + name
+    }
 
-    private func validatePath() {
-        if let path = Plist.shared.getItem(key: "repoPath") {
-            print(path)
+    private func validate(_ path: String) {
+        if FileManager.default.fileExists(atPath: "\(path)/ShadowPlay.xcodeproj") {
+            self.path = "\(path)/ShadowPlay/"
+            print(self.path)
         } else {
-            Plist.shared.setItem(key: "repoPath", value: getString(title: "Initialization", question: "Please enter the path of project folder", defaultValue: ""))
+            Plist.shared.setItem(key: "repoPath", value: getString(title: "Invalid Path", question: "Please enter the CORRECT path of project folder. It should contain `ShadowPlay.xcodeproj`.", defaultValue: ""))
+            validatePath()
+        }
+    }
+    
+    private func validatePath() {
+        if let path = Plist.shared.getItem(key: "repoPath") as? String {
+            validate(path)
+        } else {
+            Plist.shared.setItem(key: "repoPath", value: getString(title: "Initialization", question: "Please enter the path of project folder containing `ShadowPlay.xcodeproj`.", defaultValue: ""))
+            validatePath()
         }
     }
     
